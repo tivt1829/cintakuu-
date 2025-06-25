@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Permintaan Maaf Untuk Sayang</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      overflow: hidden;
+      text-align: center;
+    }
+    .intro {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #ffe4e1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 2;
+    }
+    .main-content {
+      display: none;
+      padding: 30px;
+      max-width: 600px;
+      margin: 0 auto;
+      z-index: 1;
+    }
+    .heart {
+      position: fixed;
+      top: -10px;
+      color: red;
+      font-size: 20px;
+      animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-10px); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+    .button-heart {
+      font-size: 50px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .emoji-popup {
+      font-size: 60px;
+      display: none;
+    }
+    .big-mail {
+      font-size: 100px;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="intro" onclick="tapCounter()">
+  <div class="big-mail">💌</div>
+  <p style="font-size: 22px;">Ketuk tiga kali untuk masukkk 💌</p>
+</div>
+
+<div class="main-content" id="main">
+  <h2>Sayangku ❤️</h2>
+  <p>sayang ku aku minta maap ya kalok aku masih suka bikin salah sama sayang aku masih sering bikin sayang emsoi, aku pasti kedepannya bakal perbaiki terus ya sayang, aku pasti bisaa sayang aku minta maap ya kalok sampe sekarang aku masih terus terusan nyakitin sayang terus belum bisa jadi apa yang sayang pengenin </p>
+  <p>jujur hati ku sakit banget liat postingan ulang sayang aku gak bisa berkata kata lagii antara kecewa sama diri sendiri dan sakit hatinya aku cuman bisa nangis karna lagi lagi aku ngerasa gagal dan bersalah, tapi aku gak akan nyerah buat mahamin sayang dan selalu jadi yang terbaik dari diri ku sendiri yang sayang harus tauuu aku sayang banget sama sayang 😕❗🤍💐❤️💛🔥💚💚💜💖💜💝🤎💘🤎🤍🎊🤎💜💚💗💜💜💝💜❤️💝💞💟💞💟💕💋🫂</p>
+  <p>aku cinta sama kamu sayang, sekali lagi maap ya sayang pencet gambar di bawah kalok udah maapin</p>
+  <button class="button-heart" onclick="showKiss()">❤️</button>
+  <div id="kiss" class="emoji-popup">💋</div>
+  <audio autoplay loop>
+    <source src="https://github.com/devaa-ai/musik/blob/main/penjagahati.mp3?raw=true" type="audio/mpeg">
+  </audio>
+</div>
+
+<script>
+  let taps = 0;
+  function tapCounter() {
+    taps++;
+    if (taps === 3) {
+      document.querySelector('.intro').style.display = 'none';
+      document.querySelector('.main-content').style.display = 'block';
+      spawnHearts();
+    }
+  }
+  function spawnHearts() {
+    setInterval(() => {
+      for (let i = 0; i < 5; i++) {
+        let heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+      }
+    }, 300);
+  }
+  function showKiss() {
+    document.getElementById('kiss').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
